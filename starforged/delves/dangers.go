@@ -71,3 +71,25 @@ func iterateFortifiedDangers(yield func(Danger) bool) {
 		}
 	}
 }
+
+func iterateHauntedDangers(yield func(Danger) bool) {
+	dangers := []Danger{
+		Danger{Name: `Denizen haunts this area`},
+		Danger{Name: `Unsettling sounds or foreboding signs`},
+		Danger{Name: `Denizen attacks without warning`},
+		Danger{Name: `Denizen makes a costly demand`},
+		Danger{Name: `Denizen seizes your body or mind`},
+		Danger{Name: `Denizen taunts or lures you`},
+		Danger{Name: `A disturbing truth is revealed`},
+		Danger{Name: `Frightening visions`},
+		Danger{Name: `The environment is used against you`},
+		Danger{Name: `Trickery leads you astray`},
+		Danger{Name: `True nature of this place is revealed`},
+		Danger{Name: `Sudden, shocking manifestation`},
+	}
+	for {
+		if !yield(dangers[rand.Intn(len(dangers))]) {
+			return
+		}
+	}
+}

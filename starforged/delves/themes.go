@@ -21,16 +21,22 @@ func NewTheme() Theme {
 			Dangers:     iterateWildDangers,
 		},
 		Theme{
-			Name: `Infested`,
+			Name:        `Infested`,
 			Description: `Foul creatures dwell here.`,
-			Features: iterateInfestedFeatures,
-			Dangers: iterateInfestedDangers,
+			Features:    iterateInfestedFeatures,
+			Dangers:     iterateInfestedDangers,
 		},
 		Theme{
-			Name: `Fortified`,
+			Name:        `Fortified`,
 			Description: `Foes defend this place against intruders.`,
-			Features: iterateFortifiedFeatures,
-			Dangers: iterateFortifiedDangers,
+			Features:    iterateFortifiedFeatures,
+			Dangers:     iterateFortifiedDangers,
+		},
+		Theme{
+			Name:        `Haunted`,
+			Description: `Restless spirits are bound to this place.`,
+			Features:    iterateHauntedFeatures,
+			Dangers:     iterateHauntedDangers,
 		},
 	}
 	return themes[rand.Intn(len(themes))]

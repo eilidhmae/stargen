@@ -53,3 +53,19 @@ func iterateFortifiedFeatures(yield func(Feature) bool) {
 		}
 	}
 }
+
+func iterateHauntedFeatures(yield func(Feature) bool) {
+	features := []Feature{
+		Feature{Name: `Tomb or burial site`},
+		Feature{Name: `Blood was spilled here`},
+		Feature{Name: `Unnatural mists or darkness`},
+		Feature{Name: `Messages from beyond the grave`},
+		Feature{Name: `Apparitions of a person or event`},
+	}
+	for {
+		index := rand.Intn(len(features))
+		if !yield(features[index]) {
+			return
+		}
+	}
+}
