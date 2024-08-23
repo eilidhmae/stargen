@@ -26,6 +26,12 @@ func NewTheme() Theme {
 			Features: iterateInfestedFeatures,
 			Dangers: iterateInfestedDangers,
 		},
+		Theme{
+			Name: `Fortified`,
+			Description: `Foes defend this place against intruders.`,
+			Features: iterateFortifiedFeatures,
+			Dangers: iterateFortifiedDangers,
+		},
 	}
 	return themes[rand.Intn(len(themes))]
 }

@@ -37,3 +37,19 @@ func iterateInfestedFeatures(yield func(Feature) bool) {
 		}
 	}
 }
+
+func iterateFortifiedFeatures(yield func(Feature) bool) {
+	features := []Feature{
+		Feature{Name: `Camp or quarters`},
+		Feature{Name: `Guarded location`},
+		Feature{Name: `Storage or repository`},
+		Feature{Name: `Work or training area`},
+		Feature{Name: `Command center or leadership`},
+	}
+	for {
+		index := rand.Intn(len(features))
+		if !yield(features[index]) {
+			return
+		}
+	}
+}

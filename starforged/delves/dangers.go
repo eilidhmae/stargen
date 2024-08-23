@@ -49,3 +49,25 @@ func iterateInfestedDangers(yield func(Danger) bool) {
 		}
 	}
 }
+
+func iterateFortifiedDangers(yield func(Danger) bool) {
+	dangers := []Danger{
+		Danger{Name: `Denizen patrols the area`},
+		Danger{Name: `Denizen on guard`},
+		Danger{Name: `Denizen ready to sound the alarm`},
+		Danger{Name: `Denizen sets an ambush`},
+		Danger{Name: `Denizen lures you into a trap`},
+		Danger{Name: `Denizens converge on this area`},
+		Danger{Name: `Pets or underlings`},
+		Danger{Name: `Unexpected alliance revealed`},
+		Danger{Name: `Nefarious plans revealed`},
+		Danger{Name: `Unexpected leader revealed`},
+		Danger{Name: `Trap`},
+		Danger{Name: `Alarm trigger`},
+	}
+	for {
+		if !yield(dangers[rand.Intn(len(dangers))]) {
+			return
+		}
+	}
+}
