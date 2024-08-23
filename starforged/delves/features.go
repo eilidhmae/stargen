@@ -21,3 +21,19 @@ func iterateWildFeatures(yield func(Feature) bool) {
 		}
 	}
 }
+
+func iterateInfestedFeatures(yield func(Feature) bool) {
+	features := []Feature{
+		Feature{Name: `Inhabited nest`},
+		Feature{Name: `Abandoned nest`},
+		Feature{Name: `Ravaged terrain or architecture`},
+		Feature{Name: `Remains or carrion`},
+		Feature{Name: `Hoarded food`},
+	}
+	for {
+		index := rand.Intn(len(features))
+		if !yield(features[index]) {
+			return
+		}
+	}
+}

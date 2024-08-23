@@ -27,3 +27,25 @@ func iterateWildDangers(yield func(Danger) bool) {
 		}
 	}
 }
+
+func iterateInfestedDangers(yield func(Danger) bool) {
+	dangers := []Danger{
+		Danger{Name: `Denizens swarm and attack`},
+		Danger{Name: `Toxic or sickening environment`},
+		Danger{Name: `Denizen stalks you`},
+		Danger{Name: `Denizen takes or destroys something`},
+		Danger{Name: `Denizen reveals surprising cleverness`},
+		Danger{Name: `Denizen guided by a greater threat`},
+		Danger{Name: `Denizen blocks the path`},
+		Danger{Name: `Denizen funnels you down a new path`},
+		Danger{Name: `Denizen undermines the path`},
+		Danger{Name: `Denizen lays in wait`},
+		Danger{Name: `Trap or snare`},
+		Danger{Name: `Victim's horrible fate is revealed`},
+	}
+	for {
+		if !yield(dangers[rand.Intn(len(dangers))]) {
+			return
+		}
+	}
+}
