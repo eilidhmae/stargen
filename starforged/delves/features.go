@@ -69,3 +69,19 @@ func iterateHauntedFeatures(yield func(Feature) bool) {
 		}
 	}
 }
+
+func iterateHallowedFeatures(yield func(Feature) bool) {
+	features := []Feature{
+		Feature{Name: `Temple or altar`},
+		Feature{Name: `Offerings or atonements`},
+		Feature{Name: `Religious relic or idol`},
+		Feature{Name: `Consecrated ground`},
+		Feature{Name: `Dwellings or gathering place`},
+	}
+	for {
+		index := rand.Intn(len(features))
+		if !yield(features[index]) {
+			return
+		}
+	}
+}

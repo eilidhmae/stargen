@@ -93,3 +93,25 @@ func iterateHauntedDangers(yield func(Danger) bool) {
 		}
 	}
 }
+
+func iterateHallowedDangers(yield func(Danger) bool) {
+	dangers := []Danger{
+		Danger{Name: `Denizen defends their sanctum`},
+		Danger{Name: `Denizen enacts the will of their god`},
+		Danger{Name: `Denizen seeks martyrdom`},
+		Danger{Name: `Secret of the faith is revealed`},
+		Danger{Name: `Greater purpose is revealed`},
+		Danger{Name: `Unexpected disciples are revealed`},
+		Danger{Name: `Divine manifestations`},
+		Danger{Name: `Aspect of the faith beguiles you`},
+		Danger{Name: `Unexpected leader is revealed`},
+		Danger{Name: `Embodiment of a god or myth`},
+		Danger{Name: `Protective ward or barrier`},
+		Danger{Name: `Prophecies reveal a dark fate`},
+	}
+	for {
+		if !yield(dangers[rand.Intn(len(dangers))]) {
+			return
+		}
+	}
+}

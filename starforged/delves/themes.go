@@ -38,6 +38,12 @@ func NewTheme() Theme {
 			Features:    iterateHauntedFeatures,
 			Dangers:     iterateHauntedDangers,
 		},
+		Theme{
+			Name:        `Hallowed`,
+			Description: `The faithful worship here.`,
+			Features:    iterateHallowedFeatures,
+			Dangers:     iterateHallowedDangers,
+		},
 	}
 	return themes[rand.Intn(len(themes))]
 }
