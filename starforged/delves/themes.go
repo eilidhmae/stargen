@@ -1,6 +1,9 @@
 package delves
 
-import "iter"
+import (
+	"iter"
+	"math/rand"
+)
 
 type Theme struct {
 	Name        string
@@ -10,13 +13,15 @@ type Theme struct {
 }
 
 func NewTheme() Theme {
-	theme := Theme{
-		Name:        `Wild`,
-		Description: `Nature prevails in this place.`,
-		Features:    iterateWildFeatures,
-		Dangers:     iterateWildDangers,
+	themes := []Theme{
+		Theme{
+			Name:        `Wild`,
+			Description: `Nature prevails in this place.`,
+			Features:    iterateWildFeatures,
+			Dangers:     iterateWildDangers,
+		},
 	}
-	return theme
+	return themes[rand.Intn(len(themes))]
 }
 
 func (t *Theme) GetFeatureString() string {
