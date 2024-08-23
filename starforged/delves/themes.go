@@ -44,6 +44,12 @@ func NewTheme() Theme {
 			Features:    iterateHallowedFeatures,
 			Dangers:     iterateHallowedDangers,
 		},
+		Theme{
+			Name:        `Ravaged`,
+			Description: `Time, disaster, or strife have taken their toll.`,
+			Features:    iterateRavagedFeatures,
+			Dangers:     iterateRavagedDangers,
+		},
 	}
 	return themes[rand.Intn(len(themes))]
 }

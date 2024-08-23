@@ -115,3 +115,25 @@ func iterateHallowedDangers(yield func(Danger) bool) {
 		}
 	}
 }
+
+func iterateRavagedDangers(yield func(Danger) bool) {
+	dangers := []Danger{
+		Danger{Name: `Precarious architecture or terrain`},
+		Danger{Name: `Imminent collapse or destruction`},
+		Danger{Name: `Path undermined`},
+		Danger{Name: `Blocked or broken path`},
+		Danger{Name: `Vestiges of a destructive force`},
+		Danger{Name: `Unexpected environmental threat`},
+		Danger{Name: `Echoes of a troubling past`},
+		Danger{Name: `Signs of a horrible fate`},
+		Danger{Name: `Denizen seeks retribution`},
+		Danger{Name: `Denizen leverages the environment`},
+		Danger{Name: `Denizen restores what was lost`},
+		Danger{Name: `Ravages return anew`},
+	}
+	for {
+		if !yield(dangers[rand.Intn(len(dangers))]) {
+			return
+		}
+	}
+}

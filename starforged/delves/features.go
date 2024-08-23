@@ -85,3 +85,19 @@ func iterateHallowedFeatures(yield func(Feature) bool) {
 		}
 	}
 }
+
+func iterateRavagedFeatures(yield func(Feature) bool) {
+	features := []Feature{
+		Feature{Name: `Path of destruction`},
+		Feature{Name: `Abandoned or ruined dwelling`},
+		Feature{Name: `Untouched or preserved area`},
+		Feature{Name: `Traces of what was lost`},
+		Feature{Name: `Ill-fated victims`},
+	}
+	for {
+		index := rand.Intn(len(features))
+		if !yield(features[index]) {
+			return
+		}
+	}
+}
