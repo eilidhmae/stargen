@@ -137,3 +137,47 @@ func iterateRavagedDangers(yield func(Danger) bool) {
 		}
 	}
 }
+
+func iterateCorruptedDangers(yield func(Danger) bool) {
+	dangers := []Danger{
+		Danger{Name: `Denizen spawned from dark magic`},
+		Danger{Name: `Denizen controls dark magic`},
+		Danger{Name: `Denizen corrupted by dark magic`},
+		Danger{Name: `Corruption marks you`},
+		Danger{Name: `Innocents held in thrall`},
+		Danger{Name: `Revelations of a terrible truth`},
+		Danger{Name: `Mystic trap or trigger`},
+		Danger{Name: `Mystic barrier or ward`},
+		Danger{Name: `Illusions lead you astray`},
+		Danger{Name: `Dark ritual in progress`},
+		Danger{Name: `Lingering effects of a dark ritual`},
+		Danger{Name: `Dread harbingers of a greater magic`},
+	}
+	for {
+		if !yield(dangers[rand.Intn(len(dangers))]) {
+			return
+		}
+	}
+}
+
+func iterateAncientDangers(yield func(Danger) bool) {
+	dangers := []Danger{
+		Danger{Name: `Ancient trap`},
+		Danger{Name: `Hazardous architecture or terrain`},
+		Danger{Name: `Blocked or broken path`},
+		Danger{Name: `Denizen protects an ancient secret`},
+		Danger{Name: `Denizen reveres an ancient power`},
+		Danger{Name: `Living relics of a lost age`},
+		Danger{Name: `Ancient evil resurgent`},
+		Danger{Name: `Dire warnings of a long-buried danger`},
+		Danger{Name: `Ancient disease or contamination`},
+		Danger{Name: `Artifact of terrible meaning or power`},
+		Danger{Name: `Disturbing evidence of ancient wrongs`},
+		Danger{Name: `Others seek power or knowledge`},
+	}
+	for {
+		if !yield(dangers[rand.Intn(len(dangers))]) {
+			return
+		}
+	}
+}

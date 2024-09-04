@@ -101,3 +101,35 @@ func iterateRavagedFeatures(yield func(Feature) bool) {
 		}
 	}
 }
+
+func iterateCorruptedFeatures(yield func(Feature) bool) {
+	features := []Feature{
+		Feature{Name: `Mystic focus or conduit`},
+		Feature{Name: `Strange environmental disturbances`},
+		Feature{Name: `Mystic runes or markings`},
+		Feature{Name: `Blight or decay`},
+		Feature{Name: `Evidence of a foul ritual`},
+	}
+	for {
+		index := rand.Intn(len(features))
+		if !yield(features[index]) {
+			return
+		}
+	}
+}
+
+func iterateAncientFeatures(yield func(Feature) bool) {
+	features := []Feature{
+		Feature{Name: `Evidence of lost knowledge`},
+		Feature{Name: `Inscrutable relics`},
+		Feature{Name: `Ancient artistry or craft`},
+		Feature{Name: `Preserved corpses or fossils`},
+		Feature{Name: `Visions of this place in another time`},
+	}
+	for {
+		index := rand.Intn(len(features))
+		if !yield(features[index]) {
+			return
+		}
+	}
+}

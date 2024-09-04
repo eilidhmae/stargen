@@ -50,6 +50,18 @@ func NewTheme() Theme {
 			Features:    iterateRavagedFeatures,
 			Dangers:     iterateRavagedDangers,
 		},
+		Theme{
+			Name:        `Corrupted`,
+			Description: `This place is tainted by dark magic.`,
+			Features:    iterateCorruptedFeatures,
+			Dangers:     iterateCorruptedDangers,
+		},
+		Theme{
+			Name:        `Ancient`,
+			Description: `This place holds the secrets of a bygone age.`,
+			Features:    iterateAncientFeatures,
+			Dangers:     iterateAncientDangers,
+		},
 	}
 	return themes[rand.Intn(len(themes))]
 }
