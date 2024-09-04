@@ -1,6 +1,9 @@
 package delves
 
-import "iter"
+import (
+	"iter"
+	"math/rand"
+)
 
 type Theme struct {
 	Name        string
@@ -10,13 +13,57 @@ type Theme struct {
 }
 
 func NewTheme() Theme {
-	theme := Theme{
-		Name:        `Wild`,
-		Description: `Nature prevails in this place.`,
-		Features:    iterateWildFeatures,
-		Dangers:     iterateWildDangers,
+	themes := []Theme{
+		Theme{
+			Name:        `Wild`,
+			Description: `Nature prevails in this place.`,
+			Features:    iterateWildFeatures,
+			Dangers:     iterateWildDangers,
+		},
+		Theme{
+			Name:        `Infested`,
+			Description: `Foul creatures dwell here.`,
+			Features:    iterateInfestedFeatures,
+			Dangers:     iterateInfestedDangers,
+		},
+		Theme{
+			Name:        `Fortified`,
+			Description: `Foes defend this place against intruders.`,
+			Features:    iterateFortifiedFeatures,
+			Dangers:     iterateFortifiedDangers,
+		},
+		Theme{
+			Name:        `Haunted`,
+			Description: `Restless spirits are bound to this place.`,
+			Features:    iterateHauntedFeatures,
+			Dangers:     iterateHauntedDangers,
+		},
+		Theme{
+			Name:        `Hallowed`,
+			Description: `The faithful worship here.`,
+			Features:    iterateHallowedFeatures,
+			Dangers:     iterateHallowedDangers,
+		},
+		Theme{
+			Name:        `Ravaged`,
+			Description: `Time, disaster, or strife have taken their toll.`,
+			Features:    iterateRavagedFeatures,
+			Dangers:     iterateRavagedDangers,
+		},
+		Theme{
+			Name:        `Corrupted`,
+			Description: `This place is tainted by dark magic.`,
+			Features:    iterateCorruptedFeatures,
+			Dangers:     iterateCorruptedDangers,
+		},
+		Theme{
+			Name:        `Ancient`,
+			Description: `This place holds the secrets of a bygone age.`,
+			Features:    iterateAncientFeatures,
+			Dangers:     iterateAncientDangers,
+		},
 	}
-	return theme
+	return themes[rand.Intn(len(themes))]
 }
 
 func (t *Theme) GetFeatureString() string {
